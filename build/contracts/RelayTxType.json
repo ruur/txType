@@ -1,0 +1,1462 @@
+{
+  "contractName": "RelayTxType",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "relayedTxType",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "old",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "current",
+          "type": "address"
+        }
+      ],
+      "name": "NewRelayed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipRenounced",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_relayedTxType",
+          "type": "address"
+        }
+      ],
+      "name": "setRelayed",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "sender",
+          "type": "address"
+        }
+      ],
+      "name": "allowedTxType",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550610726806100536000396000f300608060405260043610610078576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633db5665a1461007d578063715018a6146100d45780638da5cb5b146100eb578063bd96567714610142578063da26f8f614610185578063f2fde38b146101e8575b600080fd5b34801561008957600080fd5b5061009261022b565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100e057600080fd5b506100e9610251565b005b3480156100f757600080fd5b50610100610353565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561014e57600080fd5b50610183600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610378565b005b34801561019157600080fd5b506101c6600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610493565b604051808263ffffffff1663ffffffff16815260200191505060405180910390f35b3480156101f457600080fd5b50610229600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610599565b005b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156102ac57600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167ff8df31144d9c2f0f6b59d69b8b98abd5459d07f2742c4df920b25aae33c6482060405160405180910390a260008060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156103d357600080fd5b8073ffffffffffffffffffffffffffffffffffffffff16600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f4fea88aaf04c303804bb211ecc32a00ac8e5f0656bb854cad8a4a2e438256b7460405160405180910390a380600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b600080600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16630b6edbc1846040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b15801561055357600080fd5b505af1158015610567573d6000803e3d6000fd5b505050506040513d602081101561057d57600080fd5b8101908080519060200190929190505050905080915050919050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156105f457600080fd5b6105fd81610600565b50565b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415151561063c57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505600a165627a7a723058202bfa53b3163818fed7099d64a33c82dabb9af4afd5a1d4329e3cb30ef47d91a30029",
+  "deployedBytecode": "0x608060405260043610610078576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633db5665a1461007d578063715018a6146100d45780638da5cb5b146100eb578063bd96567714610142578063da26f8f614610185578063f2fde38b146101e8575b600080fd5b34801561008957600080fd5b5061009261022b565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b3480156100e057600080fd5b506100e9610251565b005b3480156100f757600080fd5b50610100610353565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561014e57600080fd5b50610183600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610378565b005b34801561019157600080fd5b506101c6600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610493565b604051808263ffffffff1663ffffffff16815260200191505060405180910390f35b3480156101f457600080fd5b50610229600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610599565b005b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156102ac57600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167ff8df31144d9c2f0f6b59d69b8b98abd5459d07f2742c4df920b25aae33c6482060405160405180910390a260008060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156103d357600080fd5b8073ffffffffffffffffffffffffffffffffffffffff16600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f4fea88aaf04c303804bb211ecc32a00ac8e5f0656bb854cad8a4a2e438256b7460405160405180910390a380600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b600080600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16630b6edbc1846040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b15801561055357600080fd5b505af1158015610567573d6000803e3d6000fd5b505050506040513d602081101561057d57600080fd5b8101908080519060200190929190505050905080915050919050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156105f457600080fd5b6105fd81610600565b50565b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415151561063c57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550505600a165627a7a723058202bfa53b3163818fed7099d64a33c82dabb9af4afd5a1d4329e3cb30ef47d91a30029",
+  "sourceMap": "117:722:4:-;;;599:10:3;591:5;;:18;;;;;;;;;;;;;;;;;;117:722:4;;;;;;",
+  "deployedSourceMap": "117:722:4:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;316:34;;8:9:-1;5:2;;;30:1;27;20:12;5:2;316:34:4;;;;;;;;;;;;;;;;;;;;;;;;;;;1052:121:3;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1052:121:3;;;;;;241:20;;8:9:-1;5:2;;;30:1;27;20:12;5:2;241:20:3;;;;;;;;;;;;;;;;;;;;;;;;;;;430:181:4;;8:9:-1;5:2;;;30:1;27;20:12;5:2;430:181:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;678:159;;8:9:-1;5:2;;;30:1;27;20:12;5:2;678:159:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1342:109:3;;8:9:-1;5:2;;;30:1;27;20:12;5:2;1342:109:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;316:34:4;;;;;;;;;;;;;:::o;1052:121:3:-;755:5;;;;;;;;;;;741:19;;:10;:19;;;733:28;;;;;;;;1132:5;;;;;;;;;;;1113:25;;;;;;;;;;;;1164:1;1148:5;;:18;;;;;;;;;;;;;;;;;;1052:121::o;241:20::-;;;;;;;;;;;;;:::o;430:181:4:-;755:5:3;;;;;;;;;;;741:19;;:10;:19;;;733:28;;;;;;;;534:14:4;508:41;;519:13;;;;;;;;;;;508:41;;;;;;;;;;;;589:14;559:13;;:45;;;;;;;;;;;;;;;;;;430:181;:::o;678:159::-;732:6;750:13;766;;;;;;;;;;;:32;;;799:6;766:40;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;766:40:4;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;766:40:4;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;766:40:4;;;;;;;;;;;;;;;;750:56;;823:6;816:13;;678:159;;;;:::o;1342:109:3:-;755:5;;;;;;;;;;;741:19;;:10;:19;;;733:28;;;;;;;;1415:29;1434:9;1415:18;:29::i;:::-;1342:109;:::o;1593:185::-;1688:1;1667:23;;:9;:23;;;;1659:32;;;;;;;;1734:9;1706:38;;1727:5;;;;;;;;;;;1706:38;;;;;;;;;;;;1762:9;1754:5;;:17;;;;;;;;;;;;;;;;;;1593:185;:::o",
+  "source": "pragma solidity ^0.4.24;\n\nimport \"./Ownable.sol\";\nimport \"./AllowedTransactions.sol\";\nimport \"./RelayedTxType.sol\";\n\ncontract RelayTxType is Ownable, AllowedTransactions {\n\n    event NewRelayed(address indexed old, address indexed current);\n\n    // Contract interface, Address of inner transaction type contract\n    RelayedTxType public relayedTxType;\n\n    // Set inner transaction type contract by initializing relayedTxType\n    function setRelayed(address _relayedTxType) external onlyOwner {\n        emit NewRelayed(relayedTxType, _relayedTxType);\n        relayedTxType = RelayedTxType(_relayedTxType);\n    }\n\n    // allowed transaction type that calls baseAllowedTxType\n    function allowedTxType(address sender) public returns(uint32) {\n        uint32 txType = relayedTxType.relayAllowedTxType(sender);\n        return txType; \n    }\n}",
+  "sourcePath": "/Users/Jonathan/txType/contracts/RelayTxType.sol",
+  "ast": {
+    "absolutePath": "/Users/Jonathan/txType/contracts/RelayTxType.sol",
+    "exportedSymbols": {
+      "RelayTxType": [
+        632
+      ]
+    },
+    "id": 633,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 580,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:4"
+      },
+      {
+        "absolutePath": "/Users/Jonathan/txType/contracts/Ownable.sol",
+        "file": "./Ownable.sol",
+        "id": 581,
+        "nodeType": "ImportDirective",
+        "scope": 633,
+        "sourceUnit": 579,
+        "src": "26:23:4",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/Jonathan/txType/contracts/AllowedTransactions.sol",
+        "file": "./AllowedTransactions.sol",
+        "id": 582,
+        "nodeType": "ImportDirective",
+        "scope": 633,
+        "sourceUnit": 10,
+        "src": "50:35:4",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/Jonathan/txType/contracts/RelayedTxType.sol",
+        "file": "./RelayedTxType.sol",
+        "id": 583,
+        "nodeType": "ImportDirective",
+        "scope": 633,
+        "sourceUnit": 711,
+        "src": "86:29:4",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 584,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 578,
+              "src": "141:7:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$578",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 585,
+            "nodeType": "InheritanceSpecifier",
+            "src": "141:7:4"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 586,
+              "name": "AllowedTransactions",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 9,
+              "src": "150:19:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_AllowedTransactions_$9",
+                "typeString": "contract AllowedTransactions"
+              }
+            },
+            "id": 587,
+            "nodeType": "InheritanceSpecifier",
+            "src": "150:19:4"
+          }
+        ],
+        "contractDependencies": [
+          9,
+          578
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 632,
+        "linearizedBaseContracts": [
+          632,
+          9,
+          578
+        ],
+        "name": "RelayTxType",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 593,
+            "name": "NewRelayed",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 592,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 589,
+                  "indexed": true,
+                  "name": "old",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 593,
+                  "src": "194:19:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 588,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "194:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 591,
+                  "indexed": true,
+                  "name": "current",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 593,
+                  "src": "215:23:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 590,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "215:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "193:46:4"
+            },
+            "src": "177:63:4"
+          },
+          {
+            "constant": false,
+            "id": 595,
+            "name": "relayedTxType",
+            "nodeType": "VariableDeclaration",
+            "scope": 632,
+            "src": "316:34:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_RelayedTxType_$710",
+              "typeString": "contract RelayedTxType"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 594,
+              "name": "RelayedTxType",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 710,
+              "src": "316:13:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_RelayedTxType_$710",
+                "typeString": "contract RelayedTxType"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 613,
+              "nodeType": "Block",
+              "src": "493:118:4",
+              "statements": [
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 603,
+                        "name": "relayedTxType",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 595,
+                        "src": "519:13:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_RelayedTxType_$710",
+                          "typeString": "contract RelayedTxType"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 604,
+                        "name": "_relayedTxType",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 597,
+                        "src": "534:14:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_contract$_RelayedTxType_$710",
+                          "typeString": "contract RelayedTxType"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 602,
+                      "name": "NewRelayed",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 593,
+                      "src": "508:10:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$returns$__$",
+                        "typeString": "function (address,address)"
+                      }
+                    },
+                    "id": 605,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "508:41:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 606,
+                  "nodeType": "EmitStatement",
+                  "src": "503:46:4"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 611,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 607,
+                      "name": "relayedTxType",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 595,
+                      "src": "559:13:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_RelayedTxType_$710",
+                        "typeString": "contract RelayedTxType"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 609,
+                          "name": "_relayedTxType",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 597,
+                          "src": "589:14:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 608,
+                        "name": "RelayedTxType",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 710,
+                        "src": "575:13:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_RelayedTxType_$710_$",
+                          "typeString": "type(contract RelayedTxType)"
+                        }
+                      },
+                      "id": 610,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "575:29:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_RelayedTxType_$710",
+                        "typeString": "contract RelayedTxType"
+                      }
+                    },
+                    "src": "559:45:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_RelayedTxType_$710",
+                      "typeString": "contract RelayedTxType"
+                    }
+                  },
+                  "id": 612,
+                  "nodeType": "ExpressionStatement",
+                  "src": "559:45:4"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 614,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 600,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 599,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 526,
+                  "src": "483:9:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "483:9:4"
+              }
+            ],
+            "name": "setRelayed",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 598,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 597,
+                  "name": "_relayedTxType",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 614,
+                  "src": "450:22:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 596,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "450:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "449:24:4"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 601,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "493:0:4"
+            },
+            "scope": 632,
+            "src": "430:181:4",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 630,
+              "nodeType": "Block",
+              "src": "740:97:4",
+              "statements": [
+                {
+                  "assignments": [
+                    622
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 622,
+                      "name": "txType",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 631,
+                      "src": "750:13:4",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint32",
+                        "typeString": "uint32"
+                      },
+                      "typeName": {
+                        "id": 621,
+                        "name": "uint32",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "750:6:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint32",
+                          "typeString": "uint32"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 627,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 625,
+                        "name": "sender",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 616,
+                        "src": "799:6:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 623,
+                        "name": "relayedTxType",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 595,
+                        "src": "766:13:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_RelayedTxType_$710",
+                          "typeString": "contract RelayedTxType"
+                        }
+                      },
+                      "id": 624,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "relayAllowedTxType",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 709,
+                      "src": "766:32:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$returns$_t_uint32_$",
+                        "typeString": "function (address) external returns (uint32)"
+                      }
+                    },
+                    "id": 626,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "766:40:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "750:56:4"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 628,
+                    "name": "txType",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 622,
+                    "src": "823:6:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "functionReturnParameters": 620,
+                  "id": 629,
+                  "nodeType": "Return",
+                  "src": "816:13:4"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 631,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "allowedTxType",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 617,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 616,
+                  "name": "sender",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 631,
+                  "src": "701:14:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 615,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "701:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "700:16:4"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 620,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 619,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 631,
+                  "src": "732:6:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 618,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "732:6:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "731:8:4"
+            },
+            "scope": 632,
+            "src": "678:159:4",
+            "stateMutability": "nonpayable",
+            "superFunction": 8,
+            "visibility": "public"
+          }
+        ],
+        "scope": 633,
+        "src": "117:722:4"
+      }
+    ],
+    "src": "0:839:4"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/Jonathan/txType/contracts/RelayTxType.sol",
+    "exportedSymbols": {
+      "RelayTxType": [
+        632
+      ]
+    },
+    "id": 633,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 580,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".24"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:4"
+      },
+      {
+        "absolutePath": "/Users/Jonathan/txType/contracts/Ownable.sol",
+        "file": "./Ownable.sol",
+        "id": 581,
+        "nodeType": "ImportDirective",
+        "scope": 633,
+        "sourceUnit": 579,
+        "src": "26:23:4",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/Jonathan/txType/contracts/AllowedTransactions.sol",
+        "file": "./AllowedTransactions.sol",
+        "id": 582,
+        "nodeType": "ImportDirective",
+        "scope": 633,
+        "sourceUnit": 10,
+        "src": "50:35:4",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/Jonathan/txType/contracts/RelayedTxType.sol",
+        "file": "./RelayedTxType.sol",
+        "id": 583,
+        "nodeType": "ImportDirective",
+        "scope": 633,
+        "sourceUnit": 711,
+        "src": "86:29:4",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 584,
+              "name": "Ownable",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 578,
+              "src": "141:7:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Ownable_$578",
+                "typeString": "contract Ownable"
+              }
+            },
+            "id": 585,
+            "nodeType": "InheritanceSpecifier",
+            "src": "141:7:4"
+          },
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 586,
+              "name": "AllowedTransactions",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 9,
+              "src": "150:19:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_AllowedTransactions_$9",
+                "typeString": "contract AllowedTransactions"
+              }
+            },
+            "id": 587,
+            "nodeType": "InheritanceSpecifier",
+            "src": "150:19:4"
+          }
+        ],
+        "contractDependencies": [
+          9,
+          578
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 632,
+        "linearizedBaseContracts": [
+          632,
+          9,
+          578
+        ],
+        "name": "RelayTxType",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 593,
+            "name": "NewRelayed",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 592,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 589,
+                  "indexed": true,
+                  "name": "old",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 593,
+                  "src": "194:19:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 588,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "194:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 591,
+                  "indexed": true,
+                  "name": "current",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 593,
+                  "src": "215:23:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 590,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "215:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "193:46:4"
+            },
+            "src": "177:63:4"
+          },
+          {
+            "constant": false,
+            "id": 595,
+            "name": "relayedTxType",
+            "nodeType": "VariableDeclaration",
+            "scope": 632,
+            "src": "316:34:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_RelayedTxType_$710",
+              "typeString": "contract RelayedTxType"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 594,
+              "name": "RelayedTxType",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 710,
+              "src": "316:13:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_RelayedTxType_$710",
+                "typeString": "contract RelayedTxType"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 613,
+              "nodeType": "Block",
+              "src": "493:118:4",
+              "statements": [
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 603,
+                        "name": "relayedTxType",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 595,
+                        "src": "519:13:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_RelayedTxType_$710",
+                          "typeString": "contract RelayedTxType"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 604,
+                        "name": "_relayedTxType",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 597,
+                        "src": "534:14:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_contract$_RelayedTxType_$710",
+                          "typeString": "contract RelayedTxType"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 602,
+                      "name": "NewRelayed",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 593,
+                      "src": "508:10:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$returns$__$",
+                        "typeString": "function (address,address)"
+                      }
+                    },
+                    "id": 605,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "508:41:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 606,
+                  "nodeType": "EmitStatement",
+                  "src": "503:46:4"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 611,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 607,
+                      "name": "relayedTxType",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 595,
+                      "src": "559:13:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_RelayedTxType_$710",
+                        "typeString": "contract RelayedTxType"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 609,
+                          "name": "_relayedTxType",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 597,
+                          "src": "589:14:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 608,
+                        "name": "RelayedTxType",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 710,
+                        "src": "575:13:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_RelayedTxType_$710_$",
+                          "typeString": "type(contract RelayedTxType)"
+                        }
+                      },
+                      "id": 610,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "575:29:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_RelayedTxType_$710",
+                        "typeString": "contract RelayedTxType"
+                      }
+                    },
+                    "src": "559:45:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_RelayedTxType_$710",
+                      "typeString": "contract RelayedTxType"
+                    }
+                  },
+                  "id": 612,
+                  "nodeType": "ExpressionStatement",
+                  "src": "559:45:4"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 614,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": null,
+                "id": 600,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 599,
+                  "name": "onlyOwner",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 526,
+                  "src": "483:9:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "483:9:4"
+              }
+            ],
+            "name": "setRelayed",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 598,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 597,
+                  "name": "_relayedTxType",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 614,
+                  "src": "450:22:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 596,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "450:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "449:24:4"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 601,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "493:0:4"
+            },
+            "scope": 632,
+            "src": "430:181:4",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 630,
+              "nodeType": "Block",
+              "src": "740:97:4",
+              "statements": [
+                {
+                  "assignments": [
+                    622
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 622,
+                      "name": "txType",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 631,
+                      "src": "750:13:4",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint32",
+                        "typeString": "uint32"
+                      },
+                      "typeName": {
+                        "id": 621,
+                        "name": "uint32",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "750:6:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint32",
+                          "typeString": "uint32"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 627,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 625,
+                        "name": "sender",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 616,
+                        "src": "799:6:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 623,
+                        "name": "relayedTxType",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 595,
+                        "src": "766:13:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_RelayedTxType_$710",
+                          "typeString": "contract RelayedTxType"
+                        }
+                      },
+                      "id": 624,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "relayAllowedTxType",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 709,
+                      "src": "766:32:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$returns$_t_uint32_$",
+                        "typeString": "function (address) external returns (uint32)"
+                      }
+                    },
+                    "id": 626,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "766:40:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "750:56:4"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 628,
+                    "name": "txType",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 622,
+                    "src": "823:6:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "functionReturnParameters": 620,
+                  "id": 629,
+                  "nodeType": "Return",
+                  "src": "816:13:4"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 631,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "allowedTxType",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 617,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 616,
+                  "name": "sender",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 631,
+                  "src": "701:14:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 615,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "701:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "700:16:4"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 620,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 619,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 631,
+                  "src": "732:6:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint32",
+                    "typeString": "uint32"
+                  },
+                  "typeName": {
+                    "id": 618,
+                    "name": "uint32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "732:6:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint32",
+                      "typeString": "uint32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "731:8:4"
+            },
+            "scope": 632,
+            "src": "678:159:4",
+            "stateMutability": "nonpayable",
+            "superFunction": 8,
+            "visibility": "public"
+          }
+        ],
+        "scope": 633,
+        "src": "117:722:4"
+      }
+    ],
+    "src": "0:839:4"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.1",
+  "updatedAt": "2018-08-01T09:58:41.646Z"
+}
