@@ -16,23 +16,16 @@ contract BaseTransactionType is Ownable {
     uint32 constant Create = 0x04;
     uint32 constant Private = 0x08;
 
-    // Variables for allowed transaction types
-    uint32 basic = 0;
-    uint32 call = 0;
-    uint32 create = 0;
-    uint32 priv = 0;
-
     struct AddressStatus {
         bool isIn;
         uint index;
         uint32 txType;
     }
-    
+
     mapping(address => AddressStatus) status;
     address[] permissionedUsers;
 
     // Modifiers
-
     modifier isPermissioned(address _user){
         bool isIn = status[_user].isIn;
         uint index = status[_user].index;
@@ -45,54 +38,48 @@ contract BaseTransactionType is Ownable {
         require(!status[_user].isIn);
         _;
     }
-    
+
+    function setTxType(address _user, bool _basicTx, bool _callTx, bool _createTx, bool _privateTx) internal {
+        uint32 basic = _basicTx ? Basic : 0;
+        uint32 call = _callTx ? Call : 0;
+        uint32 create = _createTx ? Create : 0;
+        uint32 priv = _privateTx ? Private : 0;
+        if(_createTx || _privateTx) require(msg.sender == owner, 'Not allowed.');
+        status[_user].txType = basic | call | create | priv;
+    }
+
     // Add a new address to the mapping and set allowed TX type
-    function addUser(address _user, bool _basicTx, bool _callTx, bool _createTx, bool _privateTx) external onlyOwner isNotPermissioned(_user) {
-        
+    function addUser(address _user, bool _basicTx, bool _callTx, bool _createTx, bool _privateTx) external isNotPermissioned(_user) {
         status[_user].isIn = true;
         status[_user].index = permissionedUsers.length;
-        
-        if(_basicTx) {basic = Basic;} else {basic = 0;}
-        if(_callTx) {call = Call;} else {call = 0;}
-        if(_createTx) {create = Create;} else {create = 0;}
-        if(_privateTx) {priv = Private;} else {priv = 0;}
 
-        status[_user].txType = basic | call | create | priv;
+        setTxType(_user, _basicTx, _callTx, _createTx, _privateTx);
         permissionedUsers.push(_user);
 
+        address lastUser = permissionedUsers[permissionedUsers.length - 1];
         emit ChangedUserList(permissionedUsers);
-        // Does this make sense? I could also just use _user... 
-        emit ChangedTxType(permissionedUsers[permissionedUsers.length - 1], status[permissionedUsers[permissionedUsers.length - 1]].txType);
+        emit ChangedTxType(lastUser, status[lastUser].txType);
     }
 
     // Change TX type permissions of existing permissioned user
-    function changeTxType(address _user, bool _basicTx, bool _callTx, bool _createTx, bool _privateTx) external onlyOwner isPermissioned(_user) {
-        
-        if(_basicTx) {basic = Basic;} else {basic = 0;}
-        if(_callTx) {call = Call;} else {call = 0;}
-        if(_createTx) {create = Create;} else {create = 0;}
-        if(_privateTx) {priv = Private;} else {priv = 0;}
-
-        status[_user].txType = basic | call | create | priv;
-
+    function changeTxType(address _user, bool _basicTx, bool _callTx, bool _createTx, bool _privateTx) external isPermissioned(_user) {
+        setTxType(_user, _basicTx, _callTx, _createTx, _privateTx);
         emit ChangedTxType(_user, status[_user].txType);
     }
 
     // Remove user by moving last element to its slot and reseting status
     function removeUser(address _user) external onlyOwner isPermissioned(_user) {
         uint index = status[_user].index;
-        permissionedUsers[index] = permissionedUsers[permissionedUsers.length - 1];
+        address lastUser = permissionedUsers[permissionedUsers.length - 1];
+        permissionedUsers[index] = lastUser;
         status[permissionedUsers[index]].index = index;
 
         delete permissionedUsers[permissionedUsers.length - 1];
         permissionedUsers.length--;
-
         delete status[_user];
 
         emit ChangedUserList(permissionedUsers);
     }
-
-    // Getters
 
     function getUserList() external view returns(address[]){
         return permissionedUsers;
@@ -103,9 +90,9 @@ contract BaseTransactionType is Ownable {
     }
 
     // allow transaction types (internal) gets called by allowedTxType()
-
-    function baseAllowedTxType(address _sender) internal returns(uint32){
+    function baseAllowedTxType(address _sender) internal view returns(uint32){
         if(!status[_sender].isIn) return 0x01 | 0x02;
-        else return status[_sender].txType;
+        uint32 xType = status[_sender].txType;
+        return xType;
     }
 }
