@@ -39,21 +39,19 @@ contract BaseTransactionType is Ownable {
         _;
     }
 
-    function setTxType(address _user, bool _basicTx, bool _callTx, bool _createTx, bool _privateTx) internal {
-        uint32 basic = _basicTx ? Basic : 0;
-        uint32 call = _callTx ? Call : 0;
+    function setTxType(address _user, bool _createTx, bool _privateTx) internal {
         uint32 create = _createTx ? Create : 0;
         uint32 priv = _privateTx ? Private : 0;
         if(_createTx || _privateTx) require(msg.sender == owner, 'Not allowed.');
-        status[_user].txType = basic | call | create | priv;
+        status[_user].txType = Basic | Call | create | priv;
     }
 
     // Add a new address to the mapping and set allowed TX type
-    function addUser(address _user, bool _basicTx, bool _callTx, bool _createTx, bool _privateTx) external isNotPermissioned(_user) {
+    function addUser(address _user, bool _createTx, bool _privateTx) external isNotPermissioned(_user) {
         status[_user].isIn = true;
         status[_user].index = permissionedUsers.length;
 
-        setTxType(_user, _basicTx, _callTx, _createTx, _privateTx);
+        setTxType(_user, _createTx, _privateTx);
         permissionedUsers.push(_user);
 
         address lastUser = permissionedUsers[permissionedUsers.length - 1];
@@ -62,8 +60,8 @@ contract BaseTransactionType is Ownable {
     }
 
     // Change TX type permissions of existing permissioned user
-    function changeTxType(address _user, bool _basicTx, bool _callTx, bool _createTx, bool _privateTx) external isPermissioned(_user) {
-        setTxType(_user, _basicTx, _callTx, _createTx, _privateTx);
+    function changeTxType(address _user, bool _createTx, bool _privateTx) external isPermissioned(_user) {
+        setTxType(_user, _createTx, _privateTx);
         emit ChangedTxType(_user, status[_user].txType);
     }
 
